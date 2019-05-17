@@ -10,6 +10,9 @@ namespace ConstructionLine.CodingChallenge.Tests
     public class SearchEnginePerformanceTests : SearchEngineTestsBase
     {
         private List<Shirt> _shirts;
+        private List<Color> _colors;
+        private List<Size> _sizes;
+
         private SearchEngine _searchEngine;
 
         [SetUp]
@@ -19,8 +22,10 @@ namespace ConstructionLine.CodingChallenge.Tests
             var dataBuilder = new SampleDataBuilder(50000);
 
             _shirts = dataBuilder.CreateShirts();
+            _colors = dataBuilder.GetAllColors();
+            _sizes = dataBuilder.GetAllSizes();
 
-            _searchEngine = new SearchEngine(_shirts);
+            _searchEngine = new SearchEngine(_shirts, _sizes, _colors);
         }
 
 

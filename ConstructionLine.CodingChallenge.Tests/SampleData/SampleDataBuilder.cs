@@ -41,5 +41,17 @@ namespace ConstructionLine.CodingChallenge.Tests.SampleData
             var index = _random.Next(0, colors.Count);
             return colors.ElementAt(index);
         }
+
+        public List<Size> GetAllSizes()
+        {
+
+            return Size.All;
+        }
+
+
+        public List<Color> GetAllColors()
+        {
+            return Color.All;
+        }
     }
 }
