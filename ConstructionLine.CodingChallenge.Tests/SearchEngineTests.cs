@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ConstructionLine.CodingChallenge.Tests.SampleData;
 using NUnit.Framework;
 
 namespace ConstructionLine.CodingChallenge.Tests
@@ -10,6 +11,8 @@ namespace ConstructionLine.CodingChallenge.Tests
         [Test]
         public void Test()
         {
+            var dataBuilder = new SampleDataBuilder(10);
+
             var shirts = new List<Shirt>
             {
                 new Shirt(Guid.NewGuid(), "Red - Small", Size.Small, Color.Red),
@@ -17,7 +20,12 @@ namespace ConstructionLine.CodingChallenge.Tests
                 new Shirt(Guid.NewGuid(), "Blue - Large", Size.Large, Color.Blue),
             };
 
-            var searchEngine = new SearchEngine(shirts);
+
+            var colors = dataBuilder.GetAllColors();
+            var sizes = dataBuilder.GetAllSizes();
+
+
+            var searchEngine = new SearchEngine(shirts, sizes, colors);
 
             var searchOptions = new SearchOptions
             {
